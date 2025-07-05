@@ -1,0 +1,177 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  background: #ffffff;
+  color: #333;
+}
+
+header {
+  background: #f8f8f8;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  margin: 0;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .nav-links li a {
+  text-decoration: none;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button-group {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.button-group button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: 1px solid #008080;
+  background: #ffffff;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #008080; 
+  transition: all 0.3s ease;
+}
+
+.button-group button:hover {
+  background: #008080;
+  color: #fff;
+}
+
+.button-group button.active {
+  background: #008080;
+  color: #fff;
+}
+
+section {
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+td button {
+  display: block;
+  margin: 0 auto;
+}
+
+td {
+  text-align: center;
+}
+
+button {
+  padding: 6px 12px;
+  border: 1px solid #008080; 
+  background: #ffffff;
+  cursor: pointer;
+  border-radius: 4px; 
+  color: #008080;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #008080;
+  color: #fff;
+}
+
+.flag-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #f8f8f8;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  color: white;
+  font-size: 0.9em;
+}
+
+.tag-a { background-color: #4CAF50; }   
+.tag-b { background-color: #8BC34A; }  
+.tag-c { background-color: #FFC107; }  
+.tag-d { background-color: #FF9800; }   
+.tag-f { background-color: #F44336; }   
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.heading h2 {
+  margin: 0;
+}
+
+.sort-btn {
+  padding: 8px 16px;
+  border: 1px solid #008080;
+  color: #ffffff;
+  background: #008080;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sort-btn:hover {
+  background: #008080;
+  color: #fff;
+}
+
+.sort-btn::after {
+  content: " ⬇";
+  font-size: 0.8em;
+}
+
+.button-group button.shipment-details {
+  background: #008080;
+  color: #fff;
+  border: 1px solid #008080;
+}
