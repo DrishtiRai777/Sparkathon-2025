@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details - GreenCart</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .product-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      display: flex;
+      gap: 40px;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .product-container img {
+      width: 300px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .product-info {
+      flex: 1;
+    }
+
+    .eco-score {
+      background: #d4f4d2;
+      color: #2e7d32;
+      padding: 5px 10px;
+      border-radius: 5px;
+      display: inline-block;
+      margin: 10px 0;
+    }
+
+    .add-to-cart {
+      margin-top: 20px;
+      background: #0071dc;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <img src="assets/walmart_main.jpg" alt="Walmart Logo" class="logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="page5-cart.html">Cart</a>
+      <a href="page6-dashboard.html">Dashboard</a>
+      <a href="offline-loop.html">Offline Refill</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="product-container">
+      <img src="" alt="Product Image" />
+      <div class="product-info">
+        <h1></h1>
+        <p class="price"></p>
+        <span class="eco-score"></span>
+        <p class="description"></p>
+        <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Walmart | GreenCart Initiative</p>
+  </footer>
+
+  <script>
+    const products = [
+      {
+        name: "Body Wash Refill",
+        price: 199,
+        eco: "A",
+        description: "Switching to refillable body wash helps reduce 125g of plastic waste every month.",
+        img: "assets/body_wash_refill.jpg"
+      },
+      {
+        name: "Detergent Eco Pack",
+        price: 299,
+        eco: "B",
+        description: "Eco-friendly detergent with reusable packaging.",
+        img: "assets/eco_detergent_pack.jpg"
+      },
+      {
+        name: "Recycled Notebook",
+        price: 99,
+        eco: "A",
+        description: "Notebook made from 100% recycled paper.",
+        img: "assets/recycled_note_book.jpg"
+      }
+    ];
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = decodeURIComponent(urlParams.get("product"));
+    const product = products.find(p => p.name === productName);
+
+    if (product) {
+      document.querySelector("img").src = product.img;
+      document.querySelector("h1").textContent = product.name;
+      document.querySelector(".price").textContent = `₹${product.price}`;
+      document.querySelector(".eco-score").textContent = `Eco Score: ${product.eco}`;
+      document.querySelector(".description").textContent = product.description;
+
+      window.addToCart = function () {
+        const item = {
+          name: product.name,
+          price: product.price,
+          quantity: 1,
+          eco: product.eco,
+          img: product.img
+        };
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const existing = cart.find(p => p.name === item.name);
+        if (existing) {
+          existing.quantity += 1;
+        } else {
+          cart.push(item);
+        }
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("Product added to cart!");
+      };
+    } else {
+      document.querySelector(".product-info").innerHTML = "<h2>Product not found</h2>";
+    }
+  </script>
+</body>
+</html>

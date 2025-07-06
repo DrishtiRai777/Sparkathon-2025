@@ -1,0 +1,184 @@
+<!-- page5-cart.html (Cart Page with GreenCart Integration) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart - GreenCart</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .cart-container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+
+    .cart-item img {
+      width: 100px;
+      height: auto;
+      margin-right: 20px;
+    }
+
+    .cart-details {
+      flex-grow: 1;
+    }
+
+    .quantity-input {
+      width: 60px;
+      padding: 5px;
+      margin-left: 10px;
+    }
+
+    .summary {
+      text-align: right;
+      margin-top: 20px;
+    }
+
+    .summary p {
+      font-size: 18px;
+    }
+
+    .checkout-btn {
+      background: #0071dc;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .add-product {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .add-product input[type="text"] {
+      padding: 8px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <img src="assets/walmart_main.jpg" alt="Walmart Logo" class="logo">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="cart.html">Cart</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="greencart.html">GreenCart</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="offline-loop.html">Offline Refill</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="cart-container">
+      <h2>Your Cart</h2>
+
+      <!-- Add new product manually -->
+      <div class="add-product">
+        <input type="text" id="productImage" placeholder="">
+        <button onclick="addBodyWash()" class="checkout-btn">Add Items</button>
+      </div>
+
+      <div id="cartItems"></div>
+
+      <div class="summary">
+        <p>Total Items: <span id="totalItems">0</span></p>
+        <p>Total Price: ₹<span id="totalPrice">0</span></p>
+        <p>Total Green Points: <span id="greenPoints">0</span></p>
+        <button class="checkout-btn">Proceed to Checkout</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Walmart | GreenCart Initiative</p>
+  </footer>
+
+  <script>
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const cartContainer = document.getElementById("cartItems");
+      let totalItems = 0;
+      let totalPrice = 0;
+      let greenPoints = 0;
+
+      cartContainer.innerHTML = cart.map((item, index) => {
+        const itemPoints = item.eco === "A" ? 5 : item.eco === "B" ? 3 : 1;
+        const totalItemPoints = itemPoints * item.quantity;
+        totalItems += item.quantity;
+        totalPrice += item.price * item.quantity;
+        greenPoints += totalItemPoints;
+
+        return `
+          <div class="cart-item">
+            <img src="${item.img}" alt="${item.name}">
+            <div class="cart-details">
+              <strong>${item.name}</strong><br>
+              ₹${item.price} ×
+              <input class="quantity-input" type="number" min="1" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)">
+              <br>Eco Score: ${item.eco} → +${itemPoints} Green Points per item
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      document.getElementById("totalItems").textContent = totalItems;
+      document.getElementById("totalPrice").textContent = totalPrice;
+      document.getElementById("greenPoints").textContent = greenPoints;
+    }
+
+    function updateQuantity(index, value) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart[index].quantity = parseInt(value);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+    }
+
+    function addBodyWash() {
+      const imgUrl = document.getElementById("productImage").value.trim();
+      if (!imgUrl) {
+        alert("Please enter a valid image URL.");
+        return;
+      }
+      const bodyWash = {
+        name: "Body Wash Refill",
+        price: 199,
+        quantity: 1,
+        eco: "A",
+        img: imgUrl
+      };
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const existing = cart.find(p => p.name === bodyWash.name);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push(bodyWash);
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      loadCart();
+      document.getElementById("productImage").value = "";
+    }
+
+    loadCart();
+  </script>
+</body>
+</html>
