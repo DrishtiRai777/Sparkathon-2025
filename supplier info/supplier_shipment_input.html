@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Supplier Shipment Input | EcoAssure</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="supplier_input.css" />
+</head>
+<body>
+
+  <!--  Header -->
+  <header>
+    <div class="logo-section">
+      <span class="site-name">EcoAssure</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Dashboard</a>
+      <a href="#">Profile</a>
+      <a href="#">Add Shipment</a>
+      <a href="#">Logout</a>
+    </nav>
+  </header>
+
+  <!--  Main Content -->
+  <main>
+    <h1>Supplier Shipment Input</h1>
+
+    <form id="shipmentForm">
+      <label for="supplier_name">Supplier Name:</label>
+      <input type="text" id="supplier_name" name="supplier_name" required />
+
+      <label for="origin">Origin:</label>
+      <input type="text" id="origin" name="origin" placeholder="City, Country" required />
+
+      <label for="destination">Destination:</label>
+      <input type="text" id="destination" name="destination" placeholder="City, Country" required />
+
+      <label for="distance">Distance (km):</label>
+      <input type="number" id="distance" name="distance" min="1" required />
+
+      <label for="mode">Mode of Transport:</label>
+      <select id="mode" name="mode" required>
+        <option value="">--Select Mode--</option>
+        <option value="Truck">Truck</option>
+        <option value="Rail">Rail</option>
+        <option value="Ship">Ship</option>
+        <option value="Air">Air</option>
+      </select>
+
+      <label for="vehicle_type">Vehicle Type:</label>
+      <input type="text" id="vehicle_type" name="vehicle_type" placeholder="e.g. Diesel Truck" required />
+
+      <label for="weight_volume">Shipment Weight/Volume:</label>
+      <input type="text" id="weight_volume" name="weight_volume" placeholder="e.g. 10 Tons or 30 Cubic Meters" required />
+
+      <label for="route_type">Route Type:</label>
+      <select id="route_type" name="route_type" required>
+        <option value="">--Select Route Type--</option>
+        <option value="Urban">Urban</option>
+        <option value="Highway">Highway</option>
+        <option value="Mixed">Mixed</option>
+      </select>
+
+      <button type="submit">Submit Shipment Details</button>
+    </form>
+
+    <div class="status-box">
+      <h3>Status: Tracking Started</h3>
+      <p>Your shipment details are now being verified with live route matching, mode validation, and CO₂ sanity checks.</p>
+      <p>Current Verification: <strong>Pending</strong></p>
+    </div>
+
+    <div class="note">
+      ✅ Future version: Connect your backend to run fraud checks.<br/>
+      ✅ Live tracking will auto-update the map and status here.
+    </div>
+  </main>
+
+  <!--  Footer -->
+  <footer>
+    <p>Supplier Inforormation 2025 EcoAssureure</p>
+  </footer>
+
+  <!--  JavaScript -->
+  <script>
+    document.getElementById('shipmentForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const formData = {
+        supplierName: document.getElementById('supplier_name').value,
+        origin: document.getElementById('origin').value,
+        destination: document.getElementById('destination').value,
+        distance: document.getElementById('distance').value,
+        mode: document.getElementById('mode').value,
+        vehicleType: document.getElementById('vehicle_type').value,
+        weightVolume: document.getElementById('weight_volume').value,
+        routeType: document.getElementById('route_type').value
+      };
+
+      localStorage.setItem('shipmentData', JSON.stringify(formData));
+      window.location.href = 'shipment_summary.html';
+    });
+  </script>
+</body>
+</html>
