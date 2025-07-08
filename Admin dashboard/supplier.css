@@ -1,0 +1,183 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  background: #f9f9f9;
+  color: #333;
+}
+
+header {
+  background: #4CAF50;
+  color: #fff;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.site-name {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.nav-links a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px ;
+}
+
+h2 {
+  margin: 40px 0 10px;
+  padding-left: 15px;
+  border-left: 4px solid #4CAF50;
+  color: #4CAF50;
+  font-size: large;
+}
+
+section {
+  padding: 20px 40px;
+  background: #fff;
+  margin: 20px auto;
+  max-width: 1200px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  border-radius: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  font-weight: bold;
+  text-align: left;
+}
+
+button {
+  padding: 8px 16px;
+  background: #4CAF50;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #074d08;
+}
+
+.flag-icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #4CAF50;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #fff;
+  font-size: 0.85em;
+}
+
+.tag-a { background: #4CAF50; }
+.tag-b { background: #8BC34A; }
+.tag-c { background: #FFC107; }
+.tag-d { background: #FF9800; }
+.tag-f { background: #F44336; }
+
+footer {
+  background: #f8f8f8;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+.action-group {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.action-group label {
+  font-weight: bold;
+}
+
+.action-group select {
+  padding: 6px 10px;
+  border: 1px solid #4CAF50;
+  border-radius: 4px;
+}
+
+.analysis {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.analysis-table,
+.charts-vertical {
+  flex: 1 1 400px;
+}
+
+.charts-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.charts-vertical figure {
+  margin: 0;
+  text-align: center;
+}
+
+.charts-vertical figcaption {
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: #4b4b4b;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.button-wrapper {
+  flex-basis: 100%;
+}

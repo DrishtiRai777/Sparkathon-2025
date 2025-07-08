@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="./admin.css" />
+</head>
+<body>
+  <!--  Header -->
+  <header>
+    <div class="logo-section">
+      <span class="site-name">EcoAssure</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Shipments</a>
+      <a href="#">Suppliers</a>
+      <a href="#">Logout</a>
+    </nav>
+  </header>
+  
+  <main>
+    <h1>Admin Dashboard</h1>
+    <div class="button-group">
+      <button class="shipment-details">Shipment Details</button>
+      <button onclick="location.href='region.html'">Region Based Trend</button>
+    </div>
+
+    <section>
+      <div class="heading">
+        <h2>All Shipments</h2>
+        <button class="sort-btn">Sorted by Status</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Supplier Name</th>
+            <th>Tag</th>
+            <th>Flags</th>
+            <th>Status</th>
+            <th>Supplier Profile</th>
+            <th>Sustainability Breakdown</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>TransGlobal</td>
+            <td><span class="tag tag-b">B</span></td>
+            <td><img src="./assets/flag.png" alt="Flag" class="flag-icon"> x2</td>
+            <td>In Review</td>
+            <td><button>View</button></td>
+            <td><button>View</button></td>
+            <td><button onclick="location.href='supplier.html'">View Details</button></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Global Freight</td>
+            <td><span class="tag tag-b">B</span></td>
+            <td><img src="./assets/flag.png" alt="Flag" class="flag-icon"> x1</td>
+            <td>In Review</td>
+            <td><button>View</button></td>
+            <td><button>View</button></td>
+            <td><button onclick="location.href='supplier_details.html'">View Details</button></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Acme Logistics</td>
+            <td><span class="tag tag-a">A</span></td>
+            <td>None</td>
+            <td>Approved</td>
+            <td><button>View</button></td>
+            <td><button>View</button></td>
+            <td><button onclick="location.href='supplier_details.html'">View Details</button></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Omega Shipping</td>
+            <td><span class="tag tag-a">A</span></td>
+            <td>None</td>
+            <td>Approved</td>
+            <td><button>View</button></td>
+            <td><button>View</button></td>
+            <td><button onclick="location.href='supplier_details.html'">View Details</button></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>XYZ Transports</td>
+            <td><span class="tag tag-d">D</span></td>
+            <td><img src="./assets/flag.png" alt="Flag" class="flag-icon"> x4</td>
+            <td>Rejected</td>
+            <td><button>View</button></td>
+            <td><button>View</button></td>
+            <td><button onclick="location.href='supplier_details.html'">View Details</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>Admin Dashboard 2025 EcoAssure</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Supplier Details</title>
+  <link rel="stylesheet" href="./supplier.css" />
+</head>
+<body>
+  <!--  Header -->
+  <header>
+    <div class="logo-section">
+      <span class="site-name">EcoAssure</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Shipments</a>
+      <a href="#">Suppliers</a>
+      <a href="#">Logout</a>
+    </nav>
+  </header>
+  
+  <main>
+    <h1>Supplier Details</h1>
+
+    <section>
+      <h2>Delivery Details</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Supplier</th>
+            <th>Status</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Distance</th>
+            <th>Mode</th>
+            <th>Vehicle</th>
+            <th>Weight</th>
+            <th>Route Type</th>
+            <th>Last Updated</th>
+            <th>Shipment Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>TransGlobal</td>
+            <td>Under Review</td>
+            <td>Mumbai</td>
+            <td>Delhi</td>
+            <td>1,420 km</td>
+            <td>Rail (80%) + Road (20%)</td>
+            <td>Euro-IV Diesel Truck</td>
+            <td>12 tons</td>
+            <td>NH 48 Highway</td>
+            <td>July 2, 2025 14:35 IST</td>
+            <td><span class="tag tag-b">B</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <button>View Version History</button>
+    </section>
+
+    <section>
+      <h2>Fraud & Verification Checks</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Check</th>
+            <th>Status</th>
+            <th>Details</th>
+            <th>Next Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Distance Validation</td>
+            <td><span class="status-dot pass"></span> Passed</td>
+            <td>Verified by GPS tracking. Route matches declared distance within 1%.</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>Mode Validation</td>
+            <td><span class="status-dot pass"></span> Passed</td>
+            <td>Rail documentation and freight bills verified. Road portion covers last-mile delivery.</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>Vehicle Declaration</td>
+            <td><img src="./assets/flag.png" alt="Flag" class="flag-icon"> Issue</td>
+            <td>Supplier declared Euro-V trucks; registry shows Euro-IV trucks for this route.</td>
+            <td>Request updated fleet documents by 2025-07-05</td>
+          </tr>
+          <tr>
+            <td>Emission Factors</td>
+            <td><span class="status-dot pass"></span> Passed</td>
+            <td>Emission estimate aligns with mode split and vehicle type. No excess CO₂ output.</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>Cost Pattern</td>
+            <td><img src="./assets/flag.png" alt="Flag" class="flag-icon"> Issue</td>
+            <td>Fuel expense declared 12% lower than average diesel rates for this distance.</td>
+            <td>Cross-check fuel receipts; escalate if mismatch confirmed.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  <section>
+  <h2>Carbon Emission Analysis</h2>
+  <div class="analysis">
+    <div class="analysis-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Total Shipment CO₂</td>
+            <td>4.1 tons</td>
+          </tr>
+          <tr>
+            <td>CO₂ per Ton-KM</td>
+            <td>0.24 kg/ton-km</td>
+          </tr>
+          <tr>
+            <td>Past 6-Month Average</td>
+            <td>4.4 tons CO₂</td>
+          </tr>
+          <tr>
+            <td>Industry Benchmark</td>
+            <td>3.5 tons CO₂</td>
+          </tr>
+          <tr>
+            <td>Mode Split</td>
+            <td>Rail: 80% | Road: 20%</td>
+          </tr>
+          <tr>
+            <td>Offsets Applied</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>Trend vs Last Quarter</td>
+            <td>↓ 5% CO₂ per shipment</td>
+          </tr>
+          <tr>
+            <td>Equivalent Impact</td>
+            <td>~1 passenger car’s annual emissions</td>
+          </tr>
+        </tbody>
+      </table>
+
+    <div class="carbon-actions">
+    <h3>Recommended Next Steps</h3>
+    <ul>
+      <li>Switch last-mile fleet to Euro-V or EV trucks</li>
+      <li>Increase rail share to 90% if possible</li>
+      <li>Explore verified carbon offset credits</li>
+    </ul>
+  </div>
+
+  <div class="action-group">
+    <label for="score">Adjust Shipment Score:</label>
+    <select id="score">
+      <option value="A">A</option>
+      <option value="B" selected>B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+      <option value="E">E</option>
+      <option value="F">F</option>
+    </select>
+
+    <label for="status">Update Status:</label>
+    <select id="status">
+      <option value="Pending">Pending</option>
+      <option value="Under Review" selected>Under Review</option>
+      <option value="Approved">Approved</option>
+      <option value="Rejected">Rejected</option>
+    </select>
+    <div class="button-wrapper">
+    <button class="save-action">Save Changes</button>
+    </div>
+  </div>
+  </div>
+
+    <div class="charts-vertical">
+      <figure>
+        <img src="./assets/graph.png" alt="CO₂ Trend" width="500px">
+        <figcaption>CO₂ per Shipment: 6-Month Trend vs. Industry Benchmark</figcaption>
+      </figure>
+
+      <figure>
+        <img src="./assets/mode.png" alt="Mode Split" width="200px">
+        <figcaption>Transport Mode Split</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+
+    <section>
+      <h2>Supplier Profile</h2>
+      <table class="profile-table">
+        <tbody>
+          <tr>
+            <td><strong>Registered Name:</strong></td>
+            <td>TransGlobal Pvt. Ltd.</td>
+          </tr>
+          <tr>
+            <td><strong>Fleet Size:</strong></td>
+            <td>112 Vehicles</td>
+          </tr>
+          <tr>
+            <td><strong>Fleet Breakdown:</strong></td>
+            <td>65% Diesel Trucks (Euro-IV & Euro-V), 35% Rail Wagons, 0% Electric</td>
+          </tr>
+          <tr>
+            <td><strong>Certifications:</strong></td>
+            <td>ISO 14001, Smart Freight Certified (Valid till Dec 2025)</td>
+          </tr>
+          <tr>
+            <td><strong>Compliance Status:</strong></td>
+            <td>Partially Compliant — pending fleet upgrade verification</td>
+          </tr>
+          <tr>
+            <td><strong>Regions Served:</strong></td>
+            <td>North, West & Central India</td>
+          </tr>
+          <tr>
+            <td><strong>Last Audit:</strong></td>
+            <td>April 2025 (Next due: Oct 2025)</td>
+          </tr>
+          <tr>
+            <td><strong>Contact:</strong></td>
+            <td>compliance@TransGlobal.com | +91-9876543210</td>
+          </tr>
+          <tr>
+            <td><strong>Average Shipment Score (Past 12 months):</strong></td>
+            <td>B+</td>
+          </tr>
+          <tr>
+            <td><strong>Open Compliance Flags:</strong></td>
+            <td>2 Minor, 1 Major (Under Resolution)</td>
+          </tr>
+          <tr>
+            <td><strong>Current Tag:</strong></td>
+            <td><span class="tag tag-b">B</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+      <button class="full-profile-btn">View Full Profile</button>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>GreenCart Supplier Portal 2025 EcoAssure</p>
+  </footer>
+</body>
+
+
+<script>
+  const button = document.querySelector('.save-action');
+
+  button.addEventListener('click', () => {
+    button.textContent = 'Saved';
+  });
+</script>
+
+</html>
