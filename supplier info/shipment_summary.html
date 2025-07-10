@@ -47,9 +47,10 @@
     </div>
 
     <div class="map-container">
-      <h2>Live Route Preview</h2>
-      <iframe id="mapFrame" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
-    </div>
+  <h2>Route Preview</h2>
+  <img src="assets/route-preview.png"/>
+</div>
+
   </main>
 
   <!--  Footer -->
@@ -85,9 +86,8 @@
         default: googleMode = 'driving';
       }
 
-      const apiKey = 'AIzaSyCgCCrdKkodpwg5z6l5wP05skYhPRy4XaM'; 
+      const apiKey = 'AIzaSyC61Gecc5xMsKuA-4z5m8mdqh__VQjV6_'; 
       const mapUrl = `https://www.google.com/maps/embed/v1/directions?key=${apiKey}&origin=${origin}&destination=${destination}&mode=${googleMode}`;
-      document.getElementById('mapFrame').src = mapUrl;
     } else {
       table.innerHTML = '<tr><td colspan="2">No shipment data found.</td></tr>';
     }
