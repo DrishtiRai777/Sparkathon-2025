@@ -1,0 +1,138 @@
+<!-- products.html (Updated with exact asset names) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - GreenCart by Walmart</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px;
+      justify-content: center;
+    }
+
+    .filter-bar select {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 0 20px 40px;
+    }
+
+    .product-card {
+      background: white;
+      padding: 15px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+    }
+
+    .eco-badge {
+      display: inline-block;
+      background: #d4f4d2;
+      color: #2e7d32;
+      font-size: 14px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <img src="D:\F\CODING!!\coding\greencart walmart.clone\assets\walmart_main.jpg" width="200">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Shop</a>
+      <a href="product-detail.html">Product Detail</a>
+      <a href="cart.html">Cart</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="greencart.html">GreenCart</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="offline-loop.html">Offline Refill</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 style="text-align:center; margin: 20px 0;">Browse Products</h2>
+
+    <div class="filter-bar">
+      <select id="ecoFilter">
+        <option value="all">All Eco Scores</option>
+        <option value="A">Eco Score A</option>
+        <option value="B">Eco Score B</option>
+        <option value="C">Eco Score C</option>
+      </select>
+      <select id="refillFilter">
+        <option value="all">All Types</option>
+        <option value="refillable">Refillable</option>
+        <option value="non-refillable">Non-refillable</option>
+      </select>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Walmart | GreenCart Initiative</p>
+  </footer>
+
+  <script>
+    const products = [
+      { name: "Body Wash Refill", price: 199, img: "assets/body_wash_refill.jpg", eco: "A", type: "refillable" },
+      { name: "Detergent Eco Pack", price: 299, img: "assets/detergent_pack.jpg", eco: "B", type: "refillable" },
+      { name: "Recycled Notebook", price: 99, img: "assets/notebook.jpg", eco: "A", type: "non-refillable" },
+      { name: "Eco Water Bottle", price: 349, img: "assets/waterbottle.jpg", eco: "A", type: "non-refillable" },
+      { name: "Bamboo Toothbrush", price: 149, img: "assets/bamboo_tooth_brush.jpg", eco: "A", type: "non-refillable" },
+      { name: "Reusable Grocery Bag", price: 79, img: "assets/grocerybag.jpg", eco: "B", type: "non-refillable" },
+      { name: "Kitchen Compost Bin", price: 599, img: "assets/compost.jpg", eco: "C", type: "non-refillable" },
+      { name: "Eco Cleaning Kit", price: 499, img: "assets/cleaningkit.jpg", eco: "B", type: "refillable" }
+    ];
+
+    const productGrid = document.getElementById("productGrid");
+    const ecoFilter = document.getElementById("ecoFilter");
+    const refillFilter = document.getElementById("refillFilter");
+
+    function renderProducts() {
+      const eco = ecoFilter.value;
+      const refill = refillFilter.value;
+
+      const filtered = products.filter(p => {
+        return (eco === "all" || p.eco === eco) &&
+               (refill === "all" || p.type === refill);
+      });
+
+      productGrid.innerHTML = filtered.map(p => `
+        <div class="product-card">
+          <img src="${p.img}" alt="${p.name}">
+          <h3>${p.name}</h3>
+          <p>₹${p.price}</p>
+          <span class="eco-badge">Eco Score: ${p.eco}</span><br>
+          <a href="product-details.html?product=Body%20Wash%20Refill" class="button">View</a>
+        </div>
+      `).join("");
+    }
+
+    ecoFilter.addEventListener("change", renderProducts);
+    refillFilter.addEventListener("change", renderProducts);
+
+    renderProducts();
+  </script>
+</body>
+</html>
